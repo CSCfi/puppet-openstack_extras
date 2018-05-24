@@ -136,13 +136,14 @@ class openstack_extras::repo::redhat::redhat(
     if ($::osfamily == 'RedHat' and
         $::operatingsystem != 'Fedora')
     {
+      notify { "epel code ran": }
       # 'metalink' property is supported from Puppet 3.5
       if (versioncmp($::puppetversion, '3.5') >= 0) {
         $epel_hash = { 'epel' => {
             'metalink'        => "https://mirrors.fedoraproject.org/metalink?repo=epel-${::operatingsystemmajrelease}&arch=\$basearch",
             'descr'           => "Extra Packages for Enterprise Linux ${::operatingsystemmajrelease} - \$basearch",
             'gpgkey'          => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${::operatingsystemmajrelease}",
-            'failovermethod'  => 'priority'
+            'failovermethod'  => 'priority',
             'exclude'         => 'zeromq'
           }
         }
@@ -151,7 +152,7 @@ class openstack_extras::repo::redhat::redhat(
             'baseurl'         => "https://download.fedoraproject.org/pub/epel/${::operatingsystemmajrelease}/\$basearch",
             'descr'           => "Extra Packages for Enterprise Linux ${::operatingsystemmajrelease} - \$basearch",
             'gpgkey'          => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${::operatingsystemmajrelease}",
-            'failovermethod'  => 'priority'
+            'failovermethod'  => 'priority',
             'exclude'         => 'zeromq'
           }
         }
