@@ -143,6 +143,7 @@ class openstack_extras::repo::redhat::redhat(
             'descr'           => "Extra Packages for Enterprise Linux ${::operatingsystemmajrelease} - \$basearch",
             'gpgkey'          => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${::operatingsystemmajrelease}",
             'failovermethod'  => 'priority'
+            'exclude'         => 'zeromq'
           }
         }
       } else {
@@ -151,6 +152,7 @@ class openstack_extras::repo::redhat::redhat(
             'descr'           => "Extra Packages for Enterprise Linux ${::operatingsystemmajrelease} - \$basearch",
             'gpgkey'          => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${::operatingsystemmajrelease}",
             'failovermethod'  => 'priority'
+            'exclude'         => 'zeromq'
           }
         }
       }
