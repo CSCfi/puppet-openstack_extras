@@ -68,7 +68,7 @@ class openstack_extras::repo::redhat::redhat(
   $release           = $::openstack_extras::repo::redhat::params::release,
   $manage_rdo        = true,
   $manage_virt       = true,
-  $manage_epel       = false,
+  $manage_epel       = true,
   $repo_hash         = {},
   $repo_defaults     = {},
   $gpgkey_hash       = {},
@@ -99,7 +99,7 @@ class openstack_extras::repo::redhat::redhat(
 
     $rdo_hash = {
       'rdo-release' => {
-        'baseurl'  => "${centos_mirror_url}/centos/7.4.1708/cloud/\$basearch/openstack-${release}/",
+        'baseurl'  => "http://vault.centos.org/7.4.1708/cloud/\$basearch/openstack-${release}/",
         'descr'    => "OpenStack ${release_cap} Repository",
         'gpgkey'   => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-Cloud',
       }
@@ -142,7 +142,8 @@ class openstack_extras::repo::redhat::redhat(
             'metalink'        => "https://mirrors.fedoraproject.org/metalink?repo=epel-${::operatingsystemmajrelease}&arch=\$basearch",
             'descr'           => "Extra Packages for Enterprise Linux ${::operatingsystemmajrelease} - \$basearch",
             'gpgkey'          => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${::operatingsystemmajrelease}",
-            'failovermethod'  => 'priority'
+            'failovermethod'  => 'priority',
+            'exclude'         => 'zeromq'
           }
         }
       } else {
@@ -150,7 +151,8 @@ class openstack_extras::repo::redhat::redhat(
             'baseurl'         => "https://download.fedoraproject.org/pub/epel/${::operatingsystemmajrelease}/\$basearch",
             'descr'           => "Extra Packages for Enterprise Linux ${::operatingsystemmajrelease} - \$basearch",
             'gpgkey'          => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-${::operatingsystemmajrelease}",
-            'failovermethod'  => 'priority'
+            'failovermethod'  => 'priority',
+            'exclude'         => 'zeromq'
           }
         }
       }
