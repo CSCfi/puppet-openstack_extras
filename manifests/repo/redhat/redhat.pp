@@ -76,7 +76,7 @@ class openstack_extras::repo::redhat::redhat(
   $purge_unmanaged   = false,
   $package_require   = false,
   $manage_priorities = true,
-  $centos_mirror_url = 'http://mirror.centos.org',
+  $centos_mirror_url = 'http://vault.centos.org',
 ) inherits openstack_extras::repo::redhat::params {
 
   validate_string($release)
