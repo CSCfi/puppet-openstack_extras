@@ -68,7 +68,7 @@ class openstack_extras::repo::redhat::redhat(
   $release           = $::openstack_extras::repo::redhat::params::release,
   $manage_rdo        = true,
   $manage_virt       = true,
-  $manage_epel       = false,
+  $manage_epel       = true,
   $repo_hash         = {},
   $repo_defaults     = {},
   $gpgkey_hash       = {},
