@@ -136,7 +136,6 @@ class openstack_extras::repo::redhat::redhat(
     if ($::osfamily == 'RedHat' and
         $::operatingsystem != 'Fedora')
     {
-      notify { "epel code ran": }
       # 'metalink' property is supported from Puppet 3.5
       if (versioncmp($::puppetversion, '3.5') >= 0) {
         $epel_hash = { 'epel' => {
