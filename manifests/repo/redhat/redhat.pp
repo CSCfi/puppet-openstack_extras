@@ -99,7 +99,7 @@ class openstack_extras::repo::redhat::redhat(
 
     $rdo_hash = {
       'rdo-release' => {
-        'baseurl'  => "http://vault.centos.org/7.4.1708/cloud/x86_64/openstack-newton/",
+        'baseurl'  => "http://vault.centos.org/7.4.1708/cloud/\$basearch/openstack-${release}/",
         'descr'    => "OpenStack ${release_cap} Repository",
         'gpgkey'   => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-Cloud',
       }
