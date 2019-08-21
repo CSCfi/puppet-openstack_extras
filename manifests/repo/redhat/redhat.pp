@@ -102,6 +102,7 @@ class openstack_extras::repo::redhat::redhat(
         'baseurl'  => "http://vault.centos.org/7.4.1708/cloud/\$basearch/openstack-${release}/",
         'descr'    => "OpenStack ${release_cap} Repository",
         'gpgkey'   => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-Cloud',
+        'priority' => '50',
       }
     }
 
@@ -120,6 +121,7 @@ class openstack_extras::repo::redhat::redhat(
         'baseurl'  => "${centos_mirror_url}/centos/7/virt/\$basearch/kvm-common/",
         'descr'    => 'RDO CentOS-7 - QEMU EV',
         'gpgkey'   => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-Virtualization',
+        'priority' => '51',
       }
     }
 
