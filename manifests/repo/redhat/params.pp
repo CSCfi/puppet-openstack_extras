@@ -21,7 +21,7 @@ class openstack_extras::repo::redhat::params
                       }
 
   case $::operatingsystem {
-    'centos', 'redhat', 'scientific', 'slc': {
+    'centos', 'redhat', 'scientific', 'slc', 'almalinux': {
       $dist_full  = 'epel-'
       $dist_short = 'el'
     }
